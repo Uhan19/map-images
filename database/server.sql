@@ -1,48 +1,42 @@
 -- CREATE DATABASE chompy;
-
 DROP TABLE IF EXISTS photo;
 DROP TABLE IF EXISTS business;
 DROP TABLE IF EXISTS user;
-
 -- ---
 -- Table 'user'
 -- ---
-
-CREATE TABLE user (
-  id           VARCHAR(22)  PRIMARY KEY,
-  name         VARCHAR(255) UNIQUE NOT NULL DEFAULT 'anonymous',
-  review_count INTEGER      NOT NULL DEFAULT 0,
-  fans         INTEGER      NOT NULL DEFAULT 0
-);
-
+-- CREATE TABLE user (
+--   id           VARCHAR(22)  PRIMARY KEY,
+--   name         VARCHAR(255) UNIQUE NOT NULL DEFAULT 'anonymous',
+--   review_count INTEGER      NOT NULL DEFAULT 0,
+--   fans         INTEGER      NOT NULL DEFAULT 0
+-- );
 -- ---
 -- Table 'business'
 --
 -- ---
-
-CREATE TABLE business (
-  id           VARCHAR(22)  PRIMARY KEY,
-  name         VARCHAR(255) NOT NULL DEFAULT 'business name',
+CREATE TABLE business
+(
+  id VARCHAR(22) PRIMARY KEY,
+  name VARCHAR(255) NOT NULL DEFAULT 'business name',
   neighborhood VARCHAR(255) NOT NULL DEFAULT 'neighborhood',
-  address      VARCHAR(255) NOT NULL DEFAULT 'address',
-  city         VARCHAR(255) NOT NULL DEFAULT 'city',
-  state        VARCHAR(255) NOT NULL DEFAULT 'state',
-  postal_code  VARCHAR(255) NOT NULL DEFAULT 'postal_code',
-  logitude     FLOAT        NOT NULL DEFAULT 0.0,
-  latitude     FLOAT        NOT NULL DEFAULT 0.0
+  address VARCHAR(255) NOT NULL DEFAULT 'address',
+  city VARCHAR(255) NOT NULL DEFAULT 'city',
+  state VARCHAR(255) NOT NULL DEFAULT 'state',
+  postal_code VARCHAR(255) NOT NULL DEFAULT 'postal_code',
+  logitude FLOAT NOT NULL DEFAULT 0.0,
+  latitude FLOAT NOT NULL DEFAULT 0.0
 );
-
 -- ---
 -- Table 'photos'
 -- ---
-
-CREATE TABLE photo (
-  id          VARCHAR(22)  PRIMARY KEY,
-  user_id     VARCHAR(22)  REFERENCES user,
-  business_id VARCHAR(22)  REFERENCES business,
-  caption     VARCHAR(255) DEFAULT 'no caption',
-  label       VARCHAR(255) DEFAULT NULL,
-  date        DATE         NOT NULL
+CREATE TABLE photo
+(
+  id VARCHAR(22) PRIMARY KEY,
+  business_id VARCHAR(22) REFERENCES business,
+  caption VARCHAR(255) DEFAULT 'no caption',
+  label VARCHAR(255) DEFAULT NULL,
+  date DATE NOT NULL
 );
 
 
