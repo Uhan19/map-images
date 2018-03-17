@@ -59,4 +59,10 @@ typings/
 
 client/src/keys.js
 
-database/csv
+
+database/csv/business.csv
+database/csv/photo.csv
+database/json/business.json
+database/json/businessTen.json
+database/json/photoTen.json
+database/json/photo.json

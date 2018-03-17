@@ -10,7 +10,7 @@ const Sequelize = require("sequelize");
 // });
 
 /*---------------BELOW IS REFERING TO DB HOSTED LOCALLY-------------------*/
-const database = new Sequelize("yelp_db", "root", "", {
+const database = new Sequelize("mapimages", "root", "", {
   host: "localhost",
   port: 3306,
   dialect: "mysql",

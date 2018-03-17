@@ -31,6 +31,7 @@ businessRoute.get("/:id/photos", (req, res) => {
 `
     )
     .then(data => {
+      console.log(data);
       return data[0];
     })
     .then(photos => {

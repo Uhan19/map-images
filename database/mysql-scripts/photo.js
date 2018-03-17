@@ -32,6 +32,7 @@ database
     let write10MnTimes = (n = 1e7) => {
       let isReady = true;
       while (n > 0 && isReady) {
+        photo[n].id = n;
         photo[n].business_id = n;
         isReady = file.write(
           `${photo[n].id}, ${photo[n].business_id}, ${photo[n].caption}, ${
