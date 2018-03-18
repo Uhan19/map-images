@@ -17,7 +17,7 @@ let businessFaker = function(businessId) {
   return fakerBusiness;
 };
 
-var giriSux = 10000000;
+var giriSux = 174567;
 
 var file = fs.createWriteStream("../json/businessTen.json");
 let write10MnTimes = (n = giriSux) => {
