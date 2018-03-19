@@ -22,6 +22,7 @@ class MapAndImages extends React.Component {
     axios
       .get(`/map-and-images/business/${businessId}`)
       .then(response => {
+        console.log("Client side response: ", response);
         return response.data;
       })
       .then(businessData => {

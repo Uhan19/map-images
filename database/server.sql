@@ -1,7 +1,6 @@
 -- CREATE DATABASE chompy;
 DROP TABLE IF EXISTS photo;
 DROP TABLE IF EXISTS business;
-DROP TABLE IF EXISTS user;
 -- ---
 -- Table 'user'
 -- ---
