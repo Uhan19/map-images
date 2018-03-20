@@ -2,11 +2,14 @@ config:
   target: 'http://localhost:3001'
   phases:
     - duration: 20
-      arrivalRate: 40
+      arrivalRate: 1000
+  processor: './randomizer.js'
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
 scenarios:
   - flow:
+    - function: "generateRandomData"
     - get:
-        url: "/24390"
+        url: "/{{ url }}"
+    - log: "Get id: {{ url }}"

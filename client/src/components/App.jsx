@@ -23,7 +23,7 @@ class MapAndImages extends React.Component {
       .get(`/map-and-images/business/${businessId}`)
       .then(response => {
         console.log("Client side response: ", response);
-        return response.data[0]; //change this line to 'response.data' for mysql
+        return response.data; //change this line to 'response.data' for mysql // 'response.data[0] for mongodb
       })
       .then(businessData => {
         this.setState({ business: businessData });
