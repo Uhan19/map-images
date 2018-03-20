@@ -6,8 +6,9 @@ let businessRoute = express.Router();
 
 /*--------------------MongoDB Routing---------------------*/
 businessRoute.get("/:id", (req, res) => {
-  console.log("req id sent to DB:", typeof req.params.id, req.params.id);
-  test.Business.find({ _id: req.params.id }).then(results => {
+  let numberId = req.params.id * 1;
+  console.log("req id sent to DB:", typeof numberId, numberId);
+  test.Business.find({ _id: numberId }).then(results => {
     console.log("mongo sent business!");
     console.log("GET for Business", results);
     res.send(results);
@@ -15,7 +16,7 @@ businessRoute.get("/:id", (req, res) => {
 });
 
 businessRoute.get("/:id/photos", (req, res) => {
-  test.Business.find({ _id: req.params.id }).then(results => {
+  test.Photo.find({ _id: req.params.id }).then(results => {
     console.log("mongo sent photo!");
     res.send(results);
   });

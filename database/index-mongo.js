@@ -4,26 +4,32 @@ mongoose.connect("mongodb://localhost/test");
 
 const Schema = mongoose.Schema;
 
-const businessSchema = new Schema({
-  _id: String,
-  business_id: String,
-  neighborhood: String,
-  address: String,
-  city: String,
-  state: String,
-  postal_code: String,
-  longitude: String,
-  latitude: String,
-});
+const businessSchema = new Schema(
+  {
+    _id: Number,
+    business_id: Number,
+    neighborhood: String,
+    address: String,
+    city: String,
+    state: String,
+    postal_code: String,
+    longitude: String,
+    latitude: String,
+  },
+  { collection: "business" }
+);
 
-const photoSchema = new Schema({
-  _id: String,
-  id: String,
-  business_id: String,
-  caption: String,
-  label: String,
-  date: String,
-});
+const photoSchema = new Schema(
+  {
+    _id: Number,
+    id: Number,
+    business_id: String,
+    caption: String,
+    label: String,
+    date: String,
+  },
+  { collection: "photo" }
+);
 
 const Business = mongoose.model("Business", businessSchema);
 const Photo = mongoose.model("Photo", photoSchema);
