@@ -7,10 +7,8 @@ let businessRoute = express.Router();
 /*--------------------MongoDB Routing---------------------*/
 // businessRoute.get("/:id", (req, res) => {
 //   let numberId = req.params.id * 1;
-//   console.log("req id sent to DB:", typeof numberId, numberId);
 //   test.Business.find({ _id: numberId }).then(results => {
 //     console.log("mongo sent business!");
-//     console.log("GET for Business", results);
 //     res.send(results);
 //   });
 // });
@@ -31,7 +29,7 @@ businessRoute.get("/:id", (req, res) => {
 	`
     )
     .then(data => {
-      console.log(data[0][0]);
+      // console.log(data[0][0]);
       return data[0][0];
     })
     .then(business => {
@@ -51,7 +49,7 @@ businessRoute.get("/:id/photos", (req, res) => {
 `
     )
     .then(data => {
-      console.log(data);
+      // console.log(data);
       return data[0];
     })
     .then(photos => {

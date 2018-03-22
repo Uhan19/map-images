@@ -22,7 +22,7 @@ class MapAndImages extends React.Component {
     axios
       .get(`/map-and-images/business/${businessId}`)
       .then(response => {
-        console.log("Client side response: ", response);
+        // console.log("Client side response: ", response);
         return response.data; //change this line to 'response.data' for mysql // 'response.data[0] for mongodb
       })
       .then(businessData => {

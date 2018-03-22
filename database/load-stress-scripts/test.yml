@@ -1,15 +1,20 @@
 config:
-  target: 'http://localhost:3001'
-  phases:
-    - duration: 20
-      arrivalRate: 1000
+  target: 'http://localhost:3001/map-and-images/business'
+  phases: 
+    - duration: 10
+      arrivalRate: 25 
   processor: './randomizer.js'
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
 scenarios:
   - flow:
-    - function: "generateRandomData"
-    - get:
-        url: "/{{ url }}"
-    - log: "Get id: {{ url }}"
+    - loop:
+      - function: "generateRandomData"
+      - get:
+          url: "/{{ url }}"
+      # - get: 
+      #     url: "/{{ url }}/photos"
+      count: 60
+
+

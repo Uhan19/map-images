@@ -11,9 +11,14 @@ const Sequelize = require("sequelize");
 
 /*---------------BELOW IS REFERING TO DB HOSTED LOCALLY-------------------*/
 const database = new Sequelize("mapimages", "root", "", {
-  host: "localhost",
+  host: "18.219.233.108",
   port: 3306,
   dialect: "mysql",
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000,
+  },
 });
 
 database
