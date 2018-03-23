@@ -1,7 +1,7 @@
 config:
   target: 'http://localhost:3001/map-and-images/business'
   phases: 
-    - duration: 5
+    - duration: 120
       arrivalRate: 25 
   processor: './randomizer.js'
   defaults:

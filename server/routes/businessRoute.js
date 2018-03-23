@@ -1,11 +1,39 @@
 import express from "express";
 const database = require("./../../database/index.js");
 // const test = require("./../../database/index-mongo.js");
+import redis from "redis";
 
 let businessRoute = express.Router();
 
+let REDIS_PORT = process.env.REDIS_PORT;
+
+let client = redis.createClient(REDIS_PORT);
+
+function cacheBusiness(req, res, next) {
+  const org = req.params.id;
+  client.get(org, function(err, data) {
+    if (err) throw err;
+    if (data != null) {
+      res.send(JSON.parse(data));
+    } else {
+      next();
+    }
+  });
+}
+
+function cachePhoto(req, res, next) {
+  const org = JSON.stringify(req.params.id + 1);
+  client.get(org, function(err, data) {
+    if (err) throw err;
+    if (data != null) {
+      res.send(JSON.parse(data));
+    } else {
+      next();
+    }
+  });
+}
 /*--------------------MongoDB Routing---------------------*/
-// businessRoute.get("/:id", (req, res) => {
+// businessRoute.get("/:id", cache, (req, res) => {
 //   let numberId = req.params.id * 1;
 //   test.Business.find({ _id: numberId }).then(results => {
 //     console.log("mongo sent business!");
@@ -13,7 +41,7 @@ let businessRoute = express.Router();
 //   });
 // });
 
-// businessRoute.get("/:id/photos", (req, res) => {
+// businessRoute.get("/:id/photos", cache, (req, res) => {
 //   test.Photo.find({ _id: req.params.id }).then(results => {
 //     console.log("mongo sent photo!");
 //     res.send(results);
@@ -21,7 +49,8 @@ let businessRoute = express.Router();
 // });
 
 /*--------------------MySQL Routing----------------------*/
-businessRoute.get("/:id", (req, res) => {
+
+businessRoute.get("/:id", cacheBusiness, (req, res) => {
   database
     .query(
       `
@@ -33,6 +62,7 @@ businessRoute.get("/:id", (req, res) => {
       return data[0][0];
     })
     .then(business => {
+      client.setex(req.params.id, 3600, JSON.stringify(business));
       res.send(business);
     })
     .catch(error => {
@@ -41,7 +71,7 @@ businessRoute.get("/:id", (req, res) => {
     });
 });
 
-businessRoute.get("/:id/photos", (req, res) => {
+businessRoute.get("/:id/photos", cachePhoto, (req, res) => {
   database
     .query(
       `
@@ -49,10 +79,11 @@ businessRoute.get("/:id/photos", (req, res) => {
 `
     )
     .then(data => {
-      console.log(data);
       return data[0];
     })
     .then(photos => {
+      var key = JSON.stringify(req.params.id + 1);
+      client.setex(key, 3600, JSON.stringify(photos));
       res.send(photos);
     })
     .catch(error => {

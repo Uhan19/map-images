@@ -2,11 +2,8 @@ require("newrelic");
 import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
-import { graphqlExpress, graphiqlExpress } from "apollo-server-express";
 
 import database from "./../database";
-
-import { schema } from "./routes/graphql";
 
 import { businessRoute } from "./routes/businessRoute";
 
@@ -17,9 +14,6 @@ app.get("/bundle.js", (req, res) => {
 });
 
 app.use("/:id", express.static(__dirname + "/../client/dist"));
-
-app.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
-app.get("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
 app.use("/map-and-images/business", businessRoute);
 
