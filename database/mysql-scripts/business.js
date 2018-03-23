@@ -30,7 +30,7 @@ database
     /*-----------ABOVE DUPES DATA----------------------*/
 
     const file = fs.createWriteStream("./csv/business.csv");
-    let write10MnTimes = (n = 1e7) => {
+    let write10MnTimes = (n = 100) => {
       let isReady = true;
       while (n > 0 && isReady) {
         business[n].id = n;

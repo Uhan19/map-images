@@ -61,7 +61,7 @@ client/src/keys.js
 
 
 database/csv/business.csv
-database/csv/photo.csv
+database/csv/photo2.csv
 database/json/business.json
 database/json/businessTen.json
 database/json/photoTen.json

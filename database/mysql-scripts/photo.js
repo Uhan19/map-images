@@ -28,16 +28,16 @@ database
       return a.concat(b);
     });
 
-    const file = fs.createWriteStream("./csv/photo.csv");
+    const file = fs.createWriteStream("../csv/photo2.csv");
     let write10MnTimes = (n = 1e7) => {
       let isReady = true;
       while (n > 0 && isReady) {
-        photo[n].id = n;
+        photo[n].unique_id = n;
         photo[n].business_id = n;
         isReady = file.write(
-          `${photo[n].id}, ${photo[n].business_id}, ${photo[n].caption}, ${
-            photo[n].label
-          }, ${photo[n].date} \n`
+          `${photo[n].unique_id}, ${photo[n].id}, ${photo[n].business_id}, ${
+            photo[n].caption
+          }, ${photo[n].label}, \n`
         );
         n--;
       }

@@ -1,6 +1,6 @@
 import express from "express";
 const database = require("./../../database/index.js");
-const test = require("./../../database/index-mongo.js");
+// const test = require("./../../database/index-mongo.js");
 
 let businessRoute = express.Router();
 
@@ -45,11 +45,11 @@ businessRoute.get("/:id/photos", (req, res) => {
   database
     .query(
       `
-		SELECT * FROM photo WHERE business_id='${req.params.id}' LIMIT 64;
+		SELECT * FROM photo2 WHERE unique_id='${req.params.id}' LIMIT 64;
 `
     )
     .then(data => {
-      // console.log(data);
+      console.log(data);
       return data[0];
     })
     .then(photos => {

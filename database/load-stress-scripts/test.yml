@@ -1,7 +1,7 @@
 config:
   target: 'http://localhost:3001/map-and-images/business'
   phases: 
-    - duration: 10
+    - duration: 5
       arrivalRate: 25 
   processor: './randomizer.js'
   defaults:
@@ -13,8 +13,8 @@ scenarios:
       - function: "generateRandomData"
       - get:
           url: "/{{ url }}"
-      # - get: 
-      #     url: "/{{ url }}/photos"
+      - get: 
+          url: "/{{ url }}/photos"
       count: 60
 
 

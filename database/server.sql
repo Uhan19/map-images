@@ -29,13 +29,13 @@ CREATE TABLE business
 -- ---
 -- Table 'photos'
 -- ---
-CREATE TABLE photo
+CREATE TABLE photo2
 (
-  id VARCHAR(22) PRIMARY KEY,
+  unique_id VARCHAR(22) PRIMARY KEY,
+  id VARCHAR(22),
   business_id VARCHAR(22) REFERENCES business,
   caption VARCHAR(255) DEFAULT 'no caption',
-  label VARCHAR(255) DEFAULT NULL,
-  date DATE NOT NULL
+  label VARCHAR(255) DEFAULT NULL
 );
 
 
