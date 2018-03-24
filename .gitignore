@@ -67,3 +67,4 @@ database/json/businessTen.json
 database/json/photoTen.json
 database/json/photo.json
 newrelic.js
+newrelic_agent.log

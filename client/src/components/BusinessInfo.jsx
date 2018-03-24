@@ -53,8 +53,8 @@ class BusinessInfo extends React.PureComponent {
     return (
       <BusinessInfo.container>
         <Map
-          longitude={this.props.business.longitude || 0.0} // get rid of the '* 1' for both for mysql
-          latitude={this.props.business.latitude || 0.0}
+          longitude={this.props.business.longitude * 1 || 0.0} // get rid of the '* 1' for both for mysql
+          latitude={this.props.business.latitude * 1 || 0.0}
         />
 
         <BusinessInfo.infoContainer>

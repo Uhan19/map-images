@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
-mongoose.connect("mongodb://localhost/test");
+mongoose.connect("mongodb://nick:giri@13.57.17.251/mapimages");
 
 const Schema = mongoose.Schema;
 
