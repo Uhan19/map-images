@@ -4,7 +4,7 @@
   "description": "Maps and Image Carousel Service",
   "main": "server/server.js",
   "repository": "https://github.com/codenamesgroup/Maps-and-Image-Carousel-Service.git",
-  "author": "fermi_dirac <ManueleBryan@gmail.com>",
+  "author": "fermi_dirac <ManueleBryan@gmail.com>, uhan19",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -39,7 +39,7 @@
     "jest": "^22.4.2",
     "nodemon": "^1.15.1",
     "react-test-renderer": "^16.2.0",
-    "webpack": "^4.1.0",
+    "webpack": "^4.3.0",
     "webpack-cli": "^2.0.10"
   },
   "dependencies": {

@@ -13,6 +13,10 @@ app.get("/bundle.js", (req, res) => {
   res.sendFile(path.join(__dirname + "/../client/dist/bundle.js"));
 });
 
+app.get("/bundle-server.js", (req, res) => {
+  res.sendFile(path.join(__dirname + "/../client/dist/bundle-server.js"));
+});
+
 app.use("/:id", express.static(__dirname + "/../client/dist"));
 
 app.use("/map-and-images/business", businessRoute);
