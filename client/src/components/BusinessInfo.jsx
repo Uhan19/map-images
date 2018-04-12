@@ -71,7 +71,6 @@ class BusinessInfo extends React.PureComponent {
           <FontAwesome.FaMapSigns style={iconStyle} />
           <BusinessInfo.link>Get Directions</BusinessInfo.link>
 
-          {/* no phone numbers in the database */}
           <FontAwesome.FaPhone style={iconStyle} />
           <BusinessInfo.textItem>(545) 523-7964</BusinessInfo.textItem>
 

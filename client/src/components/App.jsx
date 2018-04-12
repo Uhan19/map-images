@@ -46,7 +46,6 @@ class MapAndImages extends React.Component {
       });
   }
 
-  /** parses the url for the business id */
   parseUrlForBusinessId = () => {
     let url = window.location.href;
     url =
